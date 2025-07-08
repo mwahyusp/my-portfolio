@@ -1,46 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./components/Header";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Experience from "./components/Experience";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+import ProjectCard from "./components/ProjectCard";
+import Footer from "./components/Footer";
 
-function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-  };
+const App = () => {
+  const projects = [
+    {
+      title: "☎️ Contact List Apps",
+      description: "Contact List Application made with React.js.",
+      githubLink: "https://github.com/mwahyusp/contacts-app",
+      demoLink: "https://contacts-app-nine.vercel.app/",
+    },
+  ];
 
   return (
-    <div className={darkMode ? "dark" : ""}>
-      <button className="theme-toggle" onClick={toggleTheme}>
-        {darkMode ? "Light Mode" : "Dark Mode"}
-      </button>
-
+    <div>
       <Header />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Contact />
-
-      <style jsx>{`
-        body {
-          background-color: ${darkMode ? "#121212" : "#f9f9f9"};
-          color: ${darkMode ? "#e0e0e0" : "#333"};
-        }
-        footer {
-          background-color: ${darkMode ? "#1e1e1e" : "#333"};
-        }
-        .project {
-          background-color: ${darkMode ? "#1e1e1e" : "#fff"};
-          color: ${darkMode ? "#e0e0e0" : "#333"};
-        }
-      `}</style>
+      <main style={{ maxWidth: "800px", margin: "auto" }}>
+        {projects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </main>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
