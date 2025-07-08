@@ -1,26 +1,12 @@
-import React, { useContext } from "react";
-import { DarkModeContext } from "../context/DarkModeContext";
+import React from "react";
 
-function Header() {
-  const { darkMode, setDarkMode } = useContext(DarkModeContext);
-
+const Header = () => {
   return (
-    <header
-      style={{
-        background: darkMode ? "#1e1e1e" : "#0d6efd",
-        color: "white",
-        padding: "40px 0",
-        textAlign: "center",
-      }}>
-      <h1>Halo, Saya MWSP</h1>
-      <p>Frontend Developer | Pengalaman 1 Tahun</p>
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        style={{ marginTop: "10px" }}>
-        {darkMode ? "Light Mode" : "Dark Mode"}
-      </button>
+    <header style={{ textAlign: "center", padding: "2rem" }}>
+      <h1>Hi, I'm Wahyu 👋</h1>
+      <p>Front-End Developer | React.js | JavaScript</p>
     </header>
   );
-}
+};
 
 export default Header;
